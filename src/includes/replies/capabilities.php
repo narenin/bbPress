@@ -18,7 +18,15 @@
  */
 function bbp_get_reply_caps() {
 
-	// Filter & return
+	/**
+	 * Filter the reply capabilities.
+	 *
+	 * Allows modification of the default reply capabilities array.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $caps An array of reply capabilities with keys mapping to WordPress capabilities.
+	 */
 	return (array) apply_filters( 'bbp_get_reply_caps', array(
 		'edit_posts'          => 'edit_replies',
 		'edit_others_posts'   => 'edit_others_replies',
@@ -228,6 +236,19 @@ function bbp_map_reply_meta_caps( $caps = array(), $cap = '', $user_id = 0, $arg
 			break;
 	}
 
-	// Filter & return
+	/**
+	 * Filters the actual capabilities for the meta capability being checked.
+	 *
+	 * Allows modification of the capabilities array before it is returned by the function.
+	 *
+	 * @since 2.2.0 bbPress (r4242)
+	 *
+	 * @param array  $caps    The current capabilities being checked.
+	 * @param string $cap     The capability being checked.
+	 * @param int    $user_id The ID of the user whose capabilities are being checked.
+	 * @param array  $args    Additional arguments provided for the capability check.
+	 *
+	 * @return array Modified capabilities after applying the filter.
+	 */
 	return (array) apply_filters( 'bbp_map_reply_meta_caps', $caps, $cap, $user_id, $args );
 }

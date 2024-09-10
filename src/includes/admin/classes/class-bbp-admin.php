@@ -690,7 +690,17 @@ class BBP_Admin {
 				break;
 		}
 
-		// Filter & return
+		/**
+		 * Filter the capabilities for meta capability mapping.
+		 *
+		 * @since 2.2.0 bbPress (r4242)
+		 *
+		 * @param array  $caps    The capabilities for meta capability.
+		 * @param string $cap     Capability name.
+		 * @param int    $user_id User ID.
+		 * @param array  $args    Arguments.
+		 * @return array Filtered capabilities for meta capability.
+		 */
 		return (array) apply_filters( 'bbp_map_settings_meta_caps', $caps, $cap, $user_id, $args );
 	}
 

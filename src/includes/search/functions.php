@@ -49,7 +49,15 @@ function bbp_get_search_query_args() {
 		? array( 's' => $search_terms )
 		: array();
 
-	// Filter & return
+	/**
+	 * Filter the search query arguments.
+	 *
+	 * Allows modification of the query arguments before they are returned.
+	 *
+	 * @since 2.3.0 bbPress (r4579)
+	 *
+	 * @param array $retval Query arguments, including search terms if present.
+	 */
 	return apply_filters( 'bbp_get_search_query_args', $retval );
 }
 
@@ -132,6 +140,15 @@ function bbp_sanitize_search_request( $query_arg = 's' ) {
 	// Sanitize
 	$retval = sanitize_title( trim( $terms ) );
 
-	// Filter & return
+	/**
+	 * Filter the sanitized search request.
+	 *
+	 * Allows modification of the sanitized search terms before they are returned.
+	 *
+	 * @since 2.6.0 bbPress (r6903)
+	 *
+	 * @param string|false $retval Sanitized search terms if valid; otherwise, false.
+	 * @param string       $query_arg Query string key used for search terms.
+	 */
 	return apply_filters( 'bbp_sanitize_search_request', $retval, $query_arg );
 }

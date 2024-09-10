@@ -514,7 +514,14 @@ function bbp_get_tools_admin_pages() {
 	// Get tools URL one time & use in each tab
 	$tools_url = admin_url( 'tools.php' );
 
-	// Filter & return
+	/**
+	 * Filter the tools admin pages.
+	 *
+	 * @since 2.6.0 bbPress (r6273)
+	 *
+	 * @param array $pages The default array of tools pages.
+	 * @return array Filtered array of tools pages.
+	 */
 	return (array) apply_filters( 'bbp_tools_admin_tabs', array(
 		array(
 			'page' => 'bbp-repair',
